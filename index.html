@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+    ABT Technologies Corporation.
+    @version 1.0
+    @date 07.14.2023
+    @url https: abtsamoa.com 
+-->
+<html lang="en" class="PERF_HIGH">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header></header>
+    <script>
+      // Function to load header and footer
+      function includeHTML() {
+        const footerElement = document.querySelector("footer");
+        const headerElement = document.querySelector("header");
+
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((footerContent) => {
+            headerElement.innerHTML = footerContent;
+          });
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((footerContent) => {
+            footerElement.innerHTML = footerContent;
+          });
+      }
+      // Load header and footer when the page is fully loaded
+      window.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+    <section>
+      <h1 id="announcing-abt-technologies-july-12th-2023">
+        Announcing ABT Technologies <br /><small class="text-body-secondary">
+          July 12th 2023</small
+        >
+      </h1>
+      <p>
+        <strong>Today we announce the formation of ABT Technologies.</strong>
+      </p>
+      <p>
+        The goal of ABT Technologies is to expand technology solutions to the
+        South Pacific, developing real solutions for real problems.
+      </p>
+      <h2 id="team">Team</h2>
+      <p>
+        Our team is led by Marjorie Steffany, with her experience as Marketing
+        Operations for ASTCA and as Marketing Product Development Specialist for
+        Bluesky Communications. With her expertise in the field of communication
+        and understands the unmet needs of the south pacific Majorie will guide
+        ABT Technologies forward to
+      </p>
+      <div class="row row-cols-1 row-cols-xxl-3 row-cols-xl-2 team">
+        <div class="col">
+          <a
+            class="team-member"
+            href="https://www.linkedin.com/in/marjorie-siliga-steffany-41b195149/"
+            target="_blank"
+          >
+            <div class="img img-0" style="background-image: url('/images/surgeon.jpg');"></div>
+            Majorie Steffany
+          </a>
+        </div>
+        <div class="col">
+          <a
+            class="team-member"
+            href="https://www.linkedin.com/in/chester-leoso-b1ab1316b/"
+            target="_blank"
+          >
+            <div class="img img-1" style="background-image: url('/images/wrasse.jpg');"></div>
+            Chester Leoso
+          </a>
+        </div>
+        <div class="col">
+          <a
+            class="team-member"
+            href="https://www.linkedin.com/in/tamana-tanielu-03b07859/"
+            target="_blank">
+            <div class="img img-2" style="background-image: url('/images/parrot.jpg');"></div>
+            Tamana Tanielu
+          </a>
+        </div>
+      </div>
+      <h2 id="relation-to-ABT-corp">Relation to ABT incorporated</h2>
+      <p>
+        We are a separate company from ABT inc., we will be working in
+        conjuction with ABT inc. to develop and maintain business while ABT Tech
+        is managed by separate partners.
+      </p>
+      <h2 id="join-us">Join Us</h2>
+      <p>
+        We are actively recruiting experienced engineers and researchers to join
+        our team as members of our technical staff in the American Samoa, Pago
+        Pago area. Please fill out this
+        <a href="abttech_job_app.html">form</a> to apply.
+      </p>
+      <!-- <div class="row row-cols-1 row-cols-xxl-3 row-cols-xl-2 partner">
+        <h2 id="partner">Partners</h2>
+        <p>
+          ABT Technology has several partners, without our partners solutions
+          would be out of reach.
+        </p>
+      <div class="row row-cols-1 row-cols-xxl-3 row-cols-xl-2 partners">
+        <div class="col">
+          <a class="partner-member" href="http://www.sunglobalbroadband.com/" target="_blank">
+            <div class="img img-3"></div>
+            Sun Global Broadband LLC.
+          </a>
+        </div>
+        <div class="col">
+          <a class="partners-member" href="https://www.drfortress.com/" target="_blank">
+            <div class="img img-4"></div>
+            DRFortress
+          </a>
+        </div>
+      </div> -->
+    </section>
+    <footer></footer>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+    ABT Technologies Corporation.
+    @version 1.0
+    @date 07.14.2023
+    @url https: abtsamoa.com 
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="about_page" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <header></header>
+    <script>
+      // Function to load header and footer
+      function includeHTML() {
+        const footerElement = document.querySelector("footer");
+        const headerElement = document.querySelector("header");
+
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((footerContent) => {
+            headerElement.innerHTML = footerContent;
+          });
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((footerContent) => {
+            footerElement.innerHTML = footerContent;
+          });
+      }
+      // Load header and footer when the page is fully loaded
+      window.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+    <div>
+      <h1>About ABT Technology</h1><br />
+      <p>ABT Technology was created by a team dedicated and focused on existing and future issues that the islands of the South Pacific face everyday.</p><br/>
+      <p>ABT technology and it's parent company ABT incorporated focus on the unmet needs of the people and provide services for those needs. Providing technology services to all in the South Pacific to participate in the new digital world.</p>
+    </div>
+  </body>
+  <footer></footer>
+</html>

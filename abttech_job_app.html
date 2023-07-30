@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+    ABT Technologies Corporation.
+    @version 1.0
+    @date 07.14.2023
+    @url https: abtsamoa.com 
+-->
+<html lang="en" class="PERF_HIGH">
+  <head>
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device initial-scale=1" name="viewport" />
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header></header>
+    <script>
+      // Function to load header and footer
+      function includeHTML() {
+        const footerElement = document.querySelector("footer");
+        const headerElement = document.querySelector("header");
+
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((footerContent) => {
+            headerElement.innerHTML = footerContent;
+          });
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((footerContent) => {
+            footerElement.innerHTML = footerContent;
+          });
+      }
+      // Load header and footer when the page is fully loaded
+      window.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+    <h1>Join our team</h1>
+    <p>ABT Technologies is a new company with a mission to bring technical solutions to the South Pacific </p><br /> 
+    <p>We are recruiting engineers and researchers to join our team in American Samoa, Pago Pago area. To apply, fill out this
+    form.</p>
+    <p>Due to number of applications we recieve, we don't have the capacity to respond to all applicaitons For any questions please contact via [insert communication channel]</p>
+
+    <form action="submit_form.php" method="post">
+      <label for="name">First Name:</label>
+      <div id="description" class="description">
+        Preferred first name, ideally legal name 
+      </div>
+      <input type="text" id="first_name" name="first_name" required /><br />
+
+      <label for="name">Middle Name:</label>
+            <div id="description" class="description">
+                Preferred middle name, optional
+            </div>
+      <input type="text" id="middle_name" name="middle_name" /><br />
+
+      <label for="name">Last Name:</label>
+    <div id="description" class="description">
+         Legal surname
+    </div>
+      <input type="text" id="last_name" name="last_name" required /><br />
+
+      <label for="email">Email Address:</label>
+            <div id="description" class="description">
+                Personal email, Please don't submit with work email.
+            </div>
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="phone">Phone Number:</label>
+            <div id="description" class="description">
+                Phone number including country e.g. +1 123-222-3333
+            </div>
+      <input type="tel" id="phone" name="phone" required /><br />
+
+      <label for="dob">Date of Birth:</label>
+            <div id="description" class="description">
+                Preferred first name, ideally legal name
+            </div>
+      <input type="date" id="dob" name="dob" required /><br />
+
+      <label for="resume">Upload Resume:</label>
+      <input type="file" id="resume" name="resume" /><br />
+      
+      <label for="employer">Current Employer</label>
+      <div id="description" class="description">
+        e.g. Microsfot, Google, etc.
+      </div>
+      <input type="text" id="employer" name="employer" /><br />
+
+      <label for="role">Current role:</label>
+      <div id="description" class="description">
+        Current position title
+      </div>
+      <input type="text" id="role" name="role" /><br />
+      
+      <input type="submit" value="Submit" />
+
+      <div id="description" class="description">
+        Never submit passwords or SSN, <a href="#" onclick="openIssueForm()">Report an Issue</a> with the site
+      </div>
+    </form>
+    <!-- Add a hidden div to show the success message -->
+    <div id="issue_form" style="display: none;">
+      <span class="close-icon" onclick="closeIssueForm()">&times;</span>
+      <h2>Report an Issue</h2>
+      <form action="issue_report.php" method="post">
+        <p>Please describe the issue you encountered:</p>
+        <textarea name="issue_report" id="issue" cols="30" rows="10" placeholder="Enter your issue" required></textarea>
+        <button type="submit">Submit Issue</button>
+      </form>
+    </div>
+    <!-- Add a hidden div to show the success message -->
+    <div id="success-message" style="display: none;">Form submitted successfully!</div>
+  
+<script>
+    // Function to handle form submission success
+    function handleSuccess() {
+        // Show the success message
+        document.getElementById('success-message').style.display = 'block';
+
+        // Redirect back to the form page after 3 seconds (adjust as needed)
+        setTimeout(function () {
+            window.location.href = 'abbtech_job_app.html';
+        }, 3000); // Adjust the delay (in milliseconds) as needed
+    }
+
+    // Function to open the issue form
+      function openIssueForm() {
+        document.getElementById('issue_form').style.display = 'block';
+      } 
+
+      //Function to close the issue form
+      function closeIssueForm() {
+        document.getElementById('issue_form').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    </script>
+  </body>
+  <footer></footer>
+</html>
