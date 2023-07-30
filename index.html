@@ -32,6 +32,47 @@
       }
       // Load header and footer when the page is fully loaded
       window.addEventListener("DOMContentLoaded", includeHTML);
+
+      // Function to set a cookie with the current timestamp
+      function setInteractionCookie() {
+        const now = new Date();
+        const expirationDays = 30; // Adjust the expiration duration as needed
+        const cookieName = "user_interaction";
+
+        // Set the cookie with the current timestamp that expires after the specified number of days
+        document.cookie = `${cookieName}=${now.toUTCString()}; expires=${expirationDays}; path=/`;
+      }
+
+      // Function to get the value of a specific cookie
+      function getCookie(cookieName) {
+        const name = cookieName + "=";
+        const cookies = document.cookie.split(";");
+
+        for (let i = 0; i < cookies.length; i++) {
+          let cookie = cookies[i];
+          while (cookie.charAt(0) === " ") {
+            cookie = cookie.substring(1);
+          }
+          if (cookie.indexOf(name) === 0) {
+            return cookie.substring(name.length, cookie.length);
+          }
+        }
+        return null;
+      }
+
+      // Function to display the user's last interaction timestamp
+      function displayLastInteraction() {
+        const cookieName = "user_interaction";
+        const lastInteraction = getCookie(cookieName);
+
+        if (lastInteraction) {
+          const lastInteractionDate = new Date(lastInteraction);
+          const formattedDate = lastInteractionDate.toUTCString(); // You can format the date in any way you want
+          alert("Last Interaction: " + formattedDate);
+        } else {
+          alert("No previous interaction.");
+        }
+      }
     </script>
     <section>
       <h1 id="announcing-abt-technologies-july-12th-2023">
@@ -61,7 +102,10 @@
             href="https://www.linkedin.com/in/marjorie-siliga-steffany-41b195149/"
             target="_blank"
           >
-            <div class="img img-0" style="background-image: url('/images/surgeon.jpg');"></div>
+            <div
+              class="img img-0"
+              style="background-image: url('/images/surgeon.jpg')"
+            ></div>
             Majorie Steffany
           </a>
         </div>
@@ -71,7 +115,10 @@
             href="https://www.linkedin.com/in/chester-leoso-b1ab1316b/"
             target="_blank"
           >
-            <div class="img img-1" style="background-image: url('/images/wrasse.jpg');"></div>
+            <div
+              class="img img-1"
+              style="background-image: url('/images/wrasse.jpg')"
+            ></div>
             Chester Leoso
           </a>
         </div>
@@ -79,8 +126,12 @@
           <a
             class="team-member"
             href="https://www.linkedin.com/in/tamana-tanielu-03b07859/"
-            target="_blank">
-            <div class="img img-2" style="background-image: url('/images/parrot.jpg');"></div>
+            target="_blank"
+          >
+            <div
+              class="img img-2"
+              style="background-image: url('/images/parrot.jpg')"
+            ></div>
             Tamana Tanielu
           </a>
         </div>
@@ -118,6 +169,10 @@
           </a>
         </div>
       </div> -->
+      <button onclick="setInteractionCookie()">Set Interaction Cookie</button>
+      <button onclick="displayLastInteraction()">
+        Display Last Interaction
+      </button>
     </section>
     <footer></footer>
   </body>
