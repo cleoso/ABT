@@ -41,6 +41,19 @@
 
         // Set the cookie with the current timestamp that expires after the specified number of days
         document.cookie = `${cookieName}=${now.toUTCString()}; expires=${expirationDays}; path=/`;
+
+                  // Now send the cookie data to the server using fetch API
+          fetch('store_cookie_data.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'user_interaction=' + encodeURIComponent(now.toUTCString())
+          })
+          .then(response => response.text())
+          .then(data => console.log(data))
+          .catch(error => console.error(error));
+        }
       }
 
       // Function to get the value of a specific cookie
